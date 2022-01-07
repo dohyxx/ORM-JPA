@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-
 public class OrderRepository {
 
     private final EntityManager em;
