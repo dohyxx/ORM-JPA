@@ -32,7 +32,7 @@ public class OrderRepository {
     /**
      * 동적쿼리 예시1 (실무에서 사용X)
      */
-    public List<Order> findAll(OrderSearch orderSearch) {
+    public List<Order> findAllString(OrderSearch orderSearch) {
 
         String jpql = "select o from Order o join o.member m";
         boolean isFirstCondition = true;
@@ -40,23 +40,23 @@ public class OrderRepository {
         //주문 상태 검색
         if(orderSearch.getOrderStatus() != null){
             if (isFirstCondition) {
-                jpql += "where";
+                jpql += " where";
                 isFirstCondition = false;
             } else {
-                jpql += "and";
+                jpql += " and";
             }
-            jpql += "o.status = :status";
+            jpql += " o.status = :status";
         }
 
         //회원 이름 검색
         if (StringUtils.hasText(orderSearch.getMemberName())) {
             if (isFirstCondition) {
-                jpql += "where";
+                jpql += " where";
                 isFirstCondition = false;
             } else {
-                jpql += "and";
+                jpql += " and";
             }
-            jpql += "m.name like :name";
+            jpql += " m.name like :name";
         }
 
         TypedQuery<Order> query = em.createQuery(jpql, Order.class)

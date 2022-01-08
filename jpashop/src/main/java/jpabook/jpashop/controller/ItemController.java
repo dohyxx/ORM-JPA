@@ -73,7 +73,7 @@ public class ItemController {
 //        book.setAuthor(form.getAuthor());
 //        book.setIsbn(form.getIsbn());
 
-        //어설프게 엔티티 사용하지 말고 아래처럼 사용하기
+        //위에처럼 어설프게 엔티티 사용하지 말고 아래처럼 사용하기
         itemService.updateItem(itemId, form.getName(), form.getPrice(), form.getStockQuantity());
 
         return "redirect:/items";
